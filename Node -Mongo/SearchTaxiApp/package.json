@@ -1,0 +1,19 @@
+{
+  "name": "taxi-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mocha": "^3.3.0",
+    "mongoose": "^4.9.8",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
+  }
+}
