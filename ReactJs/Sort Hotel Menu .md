@@ -1,5 +1,12 @@
 
 
+
+http://github.com - automatic!
+[GitHub](http://github.com)
+
+
+```html
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.0.4/redux.js"></script>
 <script src="//fb.me/react-0.14.0.js"></script>
 <script src="//fb.me/react-dom-0.14.0.js"></script>
@@ -23,7 +30,11 @@ li{
   padding : 4px
 }
 
+
+```
  
+```jsx
+
  const sortBy = function sortBy(value){
   return function compare(a,b) {
     
@@ -98,3 +109,5 @@ ReactDOM.render(
         <Menu />,
     document.getElementById('root')
 );
+
+```
