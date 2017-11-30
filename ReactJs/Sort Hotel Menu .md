@@ -1,8 +1,7 @@
 
 
 
-http://github.com - automatic!
-[GitHub](http://github.com)
+[Codepen](https://codepen.io/deen_john/pen/GOPqgV)
 
 
 ```html
