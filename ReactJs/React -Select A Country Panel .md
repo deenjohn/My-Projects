@@ -18,6 +18,7 @@
 ```jsx
 
  
+
 const styles = {}
 
 styles.tab = {
@@ -35,7 +36,9 @@ styles.activeTab = {
 }
 
 styles.panel = {
-  padding: 10
+  padding: 10 ;
+  background-color : gold ;
+  width : 50%
 }
 
 const DATA = [
