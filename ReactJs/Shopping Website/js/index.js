@@ -63,12 +63,12 @@ ItemPage.propTypes = {
 const Nav = ({ activeTab, onTabChange }) => (
   <nav className="App-nav">
     <ul>
-     <li className={`App-nav-item ${activeTab === 0 && 'selected'}`}>
-      <NavLink index={0} onClick={onTabChange}>Items</NavLink>
-     </li>
-     <li className={`App-nav-item ${activeTab === 1 && 'selected'}`}>
-      <NavLink index={1} onClick={onTabChange}>Cart</NavLink>
-     </li>
+       <li className={`App-nav-item ${activeTab === 0 && 'selected'}`}>
+          <NavLink index={0} onClick={onTabChange}>Items</NavLink>
+       </li>
+       <li className={`App-nav-item ${activeTab === 1 && 'selected'}`}>
+          <NavLink index={1} onClick={onTabChange}>Cart</NavLink>
+       </li>
      </ul>
   </nav>
 );
@@ -81,7 +81,7 @@ class NavLink extends React.Component {
     render() {
     return (
       <a onClick={this.handleClick}>
-      {this.props.children}
+        {this.props.children}
       </a>
     );
   }
@@ -94,12 +94,12 @@ class NavLink extends React.Component {
       <div className="Item-image"> 
         <img src={item.image} style={{width : 64 ,height: 64}} />  
       </div>
-    <div className="Item-title">{item.name}</div>
-    <div className="Item-description">{item.description}</div>
+      <div className="Item-title">{item.name}</div>
+      <div className="Item-description">{item.description}</div>
     </div>
     <div className="Item-right">
-    <div className="Item-price">${item.price}</div>
-    {children}
+      <div className="Item-price">${item.price}</div>
+        {children}
     </div>
     </div>
   );
@@ -162,10 +162,11 @@ class NavLink extends React.Component {
         );
         // Create a new "item" that also has a 'count' property
         return {
-        ...item,
-        count: itemCounts[itemId]
-        }
-        });
+          ...item,
+          count: itemCounts[itemId]
+         }
+        }); //cartItems
+      
         return (
         <CartPage
           items={cartItems}
@@ -175,6 +176,7 @@ class NavLink extends React.Component {
     }
 
     handleAddToCart = (item) => {
+      //console.log('handleAddToCart')
       this.setState({
         cart: [...this.state.cart, item.id]
       });
@@ -221,18 +223,18 @@ function CartGreet(){
     return (
      <div> 
          <ul className="CartPage-items">
-          {items.map(item =>
+             {items.map(item =>
           <li key={item.id} className="CartPage-item">
-          <Item item={item}>
-          <div className="CartItem-controls">
-          <button
-          className="CartItem-removeOne"
-          onClick={() => onRemoveOne(item)}>&ndash;</button>
-          <span className="CartItem-count">{item.count}</span>
-          <button
-          className="CartItem-addOne"
-          onClick={() => onAddOne(item)}>+</button>
-          </div>
+            <Item item={item}>
+              <div className="CartItem-controls">
+                <button
+                className="CartItem-removeOne"
+                onClick={() => onRemoveOne(item)}>&ndash;</button>
+                <span className="CartItem-count">{item.count}</span>
+                <button
+                className="CartItem-addOne"
+                onClick={() => onAddOne(item)}>+</button>
+              </div>
           </Item>
           </li>
           )}
@@ -253,7 +255,5 @@ function CartGreet(){
   };
 
   ReactDOM.render(<App /> , document.getElementById('root'));
-
-
 
 
