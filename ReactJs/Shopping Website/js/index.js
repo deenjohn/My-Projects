@@ -206,13 +206,12 @@ class NavLink extends React.Component {
      );
   }
 
-    function CartCheckout({items}){     
-           return(<div className='totalcart'> 
-               <span style={{fontSize: 17 ,fontWeight: 700}}>Total :</span>
-               <span style={{color: '#B12704',fontWeight: 700}}>${sumCart(items)}</span>
-            </div> )
-            
-     }
+ function CartCheckout({items}){     
+      return(<div className='totalcart'> 
+          <span style={{fontSize: 17 ,fontWeight: 700}}>Total :</span>
+          <span style={{color: '#B12704',fontWeight: 700}}>${sumCart(items)}</span>
+        </div> )            
+  }
 
 function CartGreet(){
   return <div style={{fontSize: 21 ,fontWeight: 700}}>
