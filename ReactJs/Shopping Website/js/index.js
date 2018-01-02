@@ -1,4 +1,5 @@
 
+
 let items = [
   {
   id: 0,
@@ -121,23 +122,6 @@ class NavLink extends React.Component {
      });
    }
   
-   handleRemoveOne = (item) => {
-    let index = this.state.cart.indexOf(item.id);
-    this.setState({
-      cart: [
-      ...this.state.cart.slice(0, index),
-      ...this.state.cart.slice(index + 1)
-      ]
-    });
-  }
-
-   handleAddToCart = (item) => {
-      //console.log('handleAddToCart')
-      this.setState({
-        cart: [...this.state.cart, item.id]
-      });
-    }
-   
   renderContent() {
     switch(this.state.activeTab) {
     default:
@@ -153,25 +137,34 @@ class NavLink extends React.Component {
 
    }
     
+  handleRemoveOne = (item) => {
+    let index = this.state.cart.indexOf(item.id);
+    this.setState({
+      cart: [
+      ...this.state.cart.slice(0, index),
+      ...this.state.cart.slice(index + 1)
+      ]
+    });
+  }
+
     renderCart() {
     // Count how many of each item is in the cart
       let itemCounts = this.state.cart.reduce((itemCounts, itemId) => {
-      itemCounts[itemId] = itemCounts[itemId] || 0;
-      itemCounts[itemId]++;
+        itemCounts[itemId] = itemCounts[itemId] || 0;
+        itemCounts[itemId]++;
         return itemCounts;
       }, {});
-   
       // Create an array of items
-        let cartItems = Object.keys(itemCounts).map(itemId => {
+       let cartItems = Object.keys(itemCounts).map(itemId => {
         // Find the item by its id
-        var item = items.find(item =>
-        item.id === parseInt(itemId, 10)
-        );
-        // Create a new "item" that also has a 'count' property
-        return {
-          ...item,
-          count: itemCounts[itemId]
-         }
+          var item = items.find(item =>
+            item.id === parseInt(itemId, 10)
+          );
+          // Create a new "item" that also has a 'count' property.count >1 if same type of item added more than 1
+          return {
+             ...item,
+             count: itemCounts[itemId]
+           }
         }); //cartItems
       
         return (
@@ -180,6 +173,13 @@ class NavLink extends React.Component {
           onAddOne={this.handleAddToCart}
           onRemoveOne={this.handleRemoveOne} />
         );
+    }
+
+    handleAddToCart = (item) => {
+      //console.log('handleAddToCart')
+      this.setState({
+        cart: [...this.state.cart, item.id]
+      });
     }
 
     render() {
@@ -206,12 +206,13 @@ class NavLink extends React.Component {
      );
   }
 
- function CartCheckout({items}){     
-      return(<div className='totalcart'> 
-          <span style={{fontSize: 17 ,fontWeight: 700}}>Total :</span>
-          <span style={{color: '#B12704',fontWeight: 700}}>${sumCart(items)}</span>
-        </div> )            
-  }
+    function CartCheckout({items}){     
+           return(<div className='totalcart'> 
+               <span style={{fontSize: 17 ,fontWeight: 700}}>Total :</span>
+               <span style={{color: '#B12704',fontWeight: 700}}>${sumCart(items)}</span>
+            </div> )
+            
+     }
 
 function CartGreet(){
   return <div style={{fontSize: 21 ,fontWeight: 700}}>
@@ -254,5 +255,4 @@ function CartGreet(){
   };
 
   ReactDOM.render(<App /> , document.getElementById('root'));
-
 
