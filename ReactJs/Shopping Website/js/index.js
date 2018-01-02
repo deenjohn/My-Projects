@@ -121,6 +121,23 @@ class NavLink extends React.Component {
      });
    }
   
+   handleRemoveOne = (item) => {
+    let index = this.state.cart.indexOf(item.id);
+    this.setState({
+      cart: [
+      ...this.state.cart.slice(0, index),
+      ...this.state.cart.slice(index + 1)
+      ]
+    });
+  }
+
+   handleAddToCart = (item) => {
+      //console.log('handleAddToCart')
+      this.setState({
+        cart: [...this.state.cart, item.id]
+      });
+    }
+   
   renderContent() {
     switch(this.state.activeTab) {
     default:
@@ -136,16 +153,6 @@ class NavLink extends React.Component {
 
    }
     
-  handleRemoveOne = (item) => {
-    let index = this.state.cart.indexOf(item.id);
-    this.setState({
-      cart: [
-      ...this.state.cart.slice(0, index),
-      ...this.state.cart.slice(index + 1)
-      ]
-    });
-  }
-
     renderCart() {
     // Count how many of each item is in the cart
       let itemCounts = this.state.cart.reduce((itemCounts, itemId) => {
@@ -173,13 +180,6 @@ class NavLink extends React.Component {
           onAddOne={this.handleAddToCart}
           onRemoveOne={this.handleRemoveOne} />
         );
-    }
-
-    handleAddToCart = (item) => {
-      //console.log('handleAddToCart')
-      this.setState({
-        cart: [...this.state.cart, item.id]
-      });
     }
 
     render() {
