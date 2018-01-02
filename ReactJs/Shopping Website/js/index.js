@@ -61,6 +61,7 @@ ItemPage.propTypes = {
   items: PropTypes.array.isRequired
 };
 
+//App> Nav > NavLink
 const Nav = ({ activeTab, onTabChange }) => (
   <nav className="App-nav">
     <ul>
@@ -74,7 +75,7 @@ const Nav = ({ activeTab, onTabChange }) => (
   </nav>
 );
 
-
+ // event handling forwareded from NavLink to Nav to parent App
 class NavLink extends React.Component {
   handleClick = () => {
     this.props.onClick(this.props.index);
