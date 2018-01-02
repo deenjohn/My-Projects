@@ -150,12 +150,15 @@ class NavLink extends React.Component {
   }
 
     renderCart() {
-    // Count how many of each item is in the cart
+    
+     // Count how many of each item is in the cart
+    // ex : itemCounts ={0 :2 , 1 : 1 } means item with id =0 has been selected 2  times
       let itemCounts = this.state.cart.reduce((itemCounts, itemId) => {
         itemCounts[itemId] = itemCounts[itemId] || 0;
         itemCounts[itemId]++;
         return itemCounts;
       }, {});
+      
       // Create an array of items
        let cartItems = Object.keys(itemCounts).map(itemId => {
         // Find the item by its id
