@@ -123,6 +123,7 @@ class NavLink extends React.Component {
      });
    }
   
+  //based on activeTab state , render Items or Cart
   renderContent() {
     switch(this.state.activeTab) {
     default:
