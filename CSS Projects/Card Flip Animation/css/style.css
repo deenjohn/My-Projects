@@ -1,0 +1,49 @@
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 15rem 0;
+  margin-top: -10rem;
+}
+
+.card {
+  perspective: 150rem;
+  /* property to get better flip motion */
+  -moz-perspective: 150rem;
+  position: relative;
+  /* on hover,rotate front as well as back */
+}
+.card_side {
+  background-color: orangered;
+  color: #fff;
+  font-size: 2rem;
+  height: 30rem;
+  transition: all 0.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  /* property to hide the back after 180 rotation */
+}
+.card_front {
+  background-color: orangered;
+}
+.card_back {
+  background-color: green;
+  transform: rotateY(180deg);
+}
+.card:hover .card_front {
+  transform: rotateY(180deg);
+}
+.card:hover .card_back {
+  transform: rotateY(0deg);
+}
+.card_details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card_details li {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
